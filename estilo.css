@@ -286,7 +286,7 @@ html{
     justify-content: space-between;
     color: #fff;
 }
-#contacto a{
+#contacto a, label, p{
     text-decoration: none;
     color:#fff;
     display: block;
