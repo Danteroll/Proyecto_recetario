@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: sans-serif;
+}
+
+body{
+    background-image: url(img-formulario/form-register-inicio.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+main{
+    width: 100%;
+    padding: 20px;
+    margin: auto;
+    margin-top: 100px;
+}
+
+.contenedor__todo{
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    position: relative;
+}
+
+.caja__trasera{
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    background-color: rgba(0, 128, 255, 0.5);
+}
+
+.caja__trasera div{
+    margin: 100px 40px;
+    color: white;
+    transition: all 500ms;
+}
+
+.caja__trasera div p, .caja__trasera div button{
+margin-top: 30px;
+}
