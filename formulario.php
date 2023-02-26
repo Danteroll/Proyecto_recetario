@@ -10,3 +10,11 @@
     <link rel="stylesheet" href="formulario.css">
 </head>
 <body>
+    <form method="post">
+        <h1>Registrate:</h1>
+        <input type="text" name="name" placeholder="Nombre">
+        <input type="email" name="email" placeholder="Email">
+        <input type="password" name="password" placeholder="Contraseña">
+        <input type="submit" name="register">
+    </form>
+</body>
