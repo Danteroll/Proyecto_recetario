@@ -1,3 +1,20 @@
+<?php
+
+    session_start();
+
+    if(!isset($_SESSION['usuario'])){
+        echo '
+            <script>
+            alert("Por favor debes iniciar sesión");
+            window.location = "formulario.php";
+            </script>
+        ';
+        session_destroy();
+        die();
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -59,8 +76,8 @@
                     </ul>
                 </nav>
                 <div class="social">
-                    <a href="tel:+1123-456-7890">
-                        <i class="fa-solid fa-phone"></i>+1123-456-7890
+                    <a href="php/cerrar_sesion.php">
+                        Cerrar Sesión
                     </a>
                     <a href=""><i class="fa-brands fa-instagram"></i></a>
                     <a href=""><i class="fa-brands fa-twitter"></i></a> 
