@@ -67,12 +67,6 @@
                                 <span>Contacto</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="formulario.php" onclick="seleccionar()">
-                                <i class="fa-solid fa-comments"></i>
-                                <span>Registrate</span>
-                            </a>
-                        </li>
                     </ul>
                 </nav>
                 <div class="social">
