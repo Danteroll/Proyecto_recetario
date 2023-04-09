@@ -22,31 +22,7 @@ if($_POST){
         <div class="col-md-4">
         </div>
             <div class="col-md-4">
-</br></br></br>
-            <div class="card">
-                <div class="card-header">
-                    Login
-                </div>
-                <div class="card-body">
-                   
-                    <form method="POST">
-
-                    <div class = "form-group">
-                    <label>Usuario</label>
-                    <input type="type" class="form-control" name="usuario" placeholder="Escribe tu usuario">
-                    </div>
-                    <div class="form-group">
-                        
-                    <label>Contraseña:</label>
-                    <input type="password" class="form-control" name="contraseña" placeholder="Escribe tu contraseña">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Entrar al administrador</button>
-                    
-                    </form>
-                    
-                    
-
-                </div>
+            
         
             </div>
 
