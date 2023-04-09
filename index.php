@@ -48,7 +48,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#sabores" onclick="seleccionar()">
+                            <a href="sitiowebqrk/administrador/seccion/productos.php" onclick="seleccionar()">
                                 <i class="fa-solid fa-ice-cream"></i>
                                 <span>Sabores</span>
                             </a>
@@ -77,7 +77,7 @@
                         Cerrar Sesión
                     </a>
                     <a href=""><i class="fa-brands fa-instagram"></i></a>
-                    <a href=""><i class="fa-brands fa-twitter"></i></a> 
+                    <a href="perfil.php"><i class="fa-solid fa-user"></i></a> 
                 </div>
                 <div class="nav-responsive" id="bar" onclick="mostrarOcultarMenu()">
                     <i class="fa-solid fa-bars"></i>
