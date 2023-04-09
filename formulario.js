@@ -10,8 +10,51 @@ var contenedor_login_register = document.querySelector(".contenedor__login-regis
 var caja_trasera_login = document.querySelector(".caja__trasera-login");
 var caja_trasera_register = document.querySelector(".caja__trasera-register");
 
-    //FUNCIONES
+//FUNCIONES
+function mostrarAlerta(tipoError) {
+    let mensaje;
+    switch (tipoError) {
+            case "longitud":
+            mensaje = "La contraseña no debe tener más de 25 caracteres.";
+            break;
+            case "caracteres":
+            mensaje = "La contraseña no debe contener caracteres especiales ni espacios en blanco consecutivos.";
+            break;
+            default:
+                mensaje = "Por favor ingrese un valor válido.";
+            }
+            alert(mensaje);
+            }
 
+function mostrarAlerta1(tipoError) {
+    let mensaje;
+    switch (tipoError) {
+            case "longitud":
+            mensaje = "El texto no debe tener más de 25 caracteres.";
+            break;
+            case "caracteres":
+            mensaje = "El texto no debe contener caracteres especiales ni espacios en blanco consecutivos.";
+            break;
+            default:
+                mensaje = "Por favor ingrese un valor válido.";
+            }
+            alert(mensaje);
+            }
+            
+function mostrarAlerta2(tipoError) {
+    let mensaje;
+    switch (tipoError) {
+            case "correo electrónico":
+            mensaje = "Por favor ingresa una dirección de correo valida y trate de no dejar ningun espacio en blanco.";
+            break;
+            case "longitud":
+            mensaje = "Por favor ingrese un valor válido.";
+            break;
+            default:
+            mensaje = "Por favor ingrese un valor válido.";
+        }
+        alert(mensaje);
+        }
 function anchoPage(){
 
     if (window.innerWidth > 850){
