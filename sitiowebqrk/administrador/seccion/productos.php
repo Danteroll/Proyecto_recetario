@@ -121,9 +121,9 @@ switch ($accion){
         </div>
 
         <div class="btn-group" role="group" aria-label="">
-            <button type="submit" name="accion" <?php echo ($accion=="Selecionar")?"disabled":""; ?> value="Agregar" class="btn btn-success">Agregar</button>
+            <button type="submit" name="accion" value="Agregar" class="btn btn-success">Agregar</button>
             <button type="submit" name="accion" value="Modificar" class="btn btn-warning">Modificar</button>
-            <button type="submit" name="accion" <?php echo ($accion!="Selecionar")?"disabled":""; ?> value="Cancelar" class="btn btn-info">Cancelar</button>
+            <button type="submit" name="accion" value="Cancelar" class="btn btn-info">Cancelar</button>
         </div>
 
         </form>
