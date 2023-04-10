@@ -171,7 +171,6 @@ switch ($accion){
             <input type="submit" name="accion" value="Seleccionar" class="btn btn-primary" />
             <input type="submit" name="accion" value="Borrar" class="btn btn-danger" />
             </form>
-
             </td>
 
         </tr>
