@@ -162,7 +162,7 @@ switch ($accion){
             <td><?php echo $recetas['id'];?></td>
             <td><?php echo $recetas['nombre'];?></td>
             <td>
-                <img src="../../img1/<?php echo $recetas['imagen'];?>" width="50" alt="" srcset="">
+                <?php echo $recetas['imagen'];?>
             </td>
 
             <td>
