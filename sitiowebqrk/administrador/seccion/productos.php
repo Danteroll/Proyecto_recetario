@@ -128,21 +128,17 @@ switch ($accion){
 
         <div class = "form-group">
         <label for="txtNombre">Imagen</label>
+
 </br>
-
-        <?php if($txtImagen!=""){?>
-
-            <img src="../../img/<?php echo $txtImagen?>" width="50" alt="" srcset="">
-
-        <?php } ?>
+        <?php echo $txtImagen?>
 
         <input type="file" class="form-control" name="txtImagen" id="txtImagen" placeholder="Nombre">
         </div>
 
         <div class="btn-group" role="group" aria-label="">
-            <button type="submit" name="accion" <?php echo ($accion=="Seleecionar")?"disabled":""; ?> value="Agregar" class="btn btn-success">Agregar</button>
-            <button type="submit" name="accion" <?php echo ($accion!="Seleecionar")?"disabled":""; ?> value="Modificar" class="btn btn-warning">Modificar</button>
-            <button type="submit" name="accion" <?php echo ($accion!="Seleecionar")?"disabled":""; ?> value="Cancelar" class="btn btn-info">Cancelar</button>
+            <button type="submit" name="accion" value="Agregar" class="btn btn-success">Agregar</button>
+            <button type="submit" name="accion" value="Modificar" class="btn btn-warning">Modificar</button>
+            <button type="submit" name="accion" value="Cancelar" class="btn btn-info">Cancelar</button>
         </div>
 
         </form>
@@ -156,7 +152,7 @@ switch ($accion){
         <tr>
             <th>ID</th>
             <th>Nombre</th>
-            <th>Imagen</th>
+            <th>Imagenes</th>
             <th>Acciones</th>
         </tr>
     </thead>
