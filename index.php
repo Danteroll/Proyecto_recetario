@@ -49,8 +49,8 @@
                         </li>
                         <li>
                             <a href="sitiowebqrk/administrador/seccion/productos.php" onclick="seleccionar()">
-                                <i class="fa-solid fa-ice-cream"></i>
-                                <span>Sabores</span>
+                                <i class="fa-regular fa-rectangle-list"></i>
+                                <span>Agregar receta</span>
                             </a>
                         </li>
                         <li>
