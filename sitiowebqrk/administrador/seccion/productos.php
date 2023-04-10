@@ -11,20 +11,21 @@ include("../config/bd.php");
 switch ($accion){
     
     case "Agregar":
-        $sentenciaSQL= $conexion->prepare("INSERT INTO recetas (nombre,imagen) VALUES (:nombre,:imagen);");
+        $sentenciaSQL= $conexion->prepare("INSERT INTO `recetas` (nombre,imagen) VALUES (:nombre,:imagen);");
         $sentenciaSQL->bindParam(':nombre',$txtNombre);
 
         $fecha = new DateTime();
-        $nombreArchivo = ($txtImagen!="")?$fecha->getTimestamp()."_".$_FILES["txtImagen"]["name"]:"imagen.jpg";
+        $nombreArchivo=($txtImagen!="")?$fecha->getTimestamp()."_".$_FILES["txtImagen"]["name"]:"imagen.jpg";
 
-        $tmpImagen=$_FILES["txtImagen"]["tmp_name"];
+        $tmpImagen=$_FILES["txtImagen"]["tmp_name"]; 
 
         if($tmpImagen!=""){
-            move_uploaded_file($tmpImagen, "../../img1/" .$nombreArchivo);
+            move_uploaded_file($tmpImagen,"../../img1/".$nombreArchivo);
         }
 
-        $sentenciaSQL->bindParam(':imagen',$nombreArchivo);
+        $sentenciaSQL->bindParam(':imagen',$txtImagen);
         $sentenciaSQL->execute();
+        header("Location:productos.php");
         break;
 
     case "Modificar":
@@ -35,12 +36,32 @@ switch ($accion){
         $sentenciaSQL->execute();
 
         if($txtImagen!=""){
-            $sentenciaSQL=$conexion->prepare("UPDATE recetas SET imagen=:imagen WHERE id=:id");
+
+            $fecha = new DateTime();
+            $nombreArchivo=($txtImagen!="")?$fecha->getTimestamp()."_".$_FILES["txtImagen"]["name"]:"imagen.jpg";
+            $tmpImagen=$_FILES["txtImagen"]["tmp_name"];
+
+            move_uploaded_file($tmpImagen,"../../img/".$nombreArchivo);
+
+            $sentenciaSQL=$conexion->prepare("SELECT imagen FROM recetas WHERE id=:id");
+            $sentenciaSQL->bindParam(':id',$txtID);
+            $sentenciaSQL->execute();
+            $recetas=$sentenciaSQL->fetch(PDO::FETCH_LAZY);
+
+            if( isset($recetas["imagen"]) &&($recetas["imagen"]!="imagen.jpg") ){
+
+                if(file_exists("../../img/".$recetas["imagen"])){
+
+                    unlink("../../img/".$recetas["imagen"]);
+                }
+            }
+
+            $sentenciaSQL=$conexion->prepare("UPDATE recetas SET nombre=:nombre WHERE id=:id");
             $sentenciaSQL->bindParam(':imagen',$txtImagen);
             $sentenciaSQL->bindParam(':id',$txtID);
             $sentenciaSQL->execute();
         }
-
+        header("Location:productos.php");
         //echo "Presionado boton modificar";
             break;
 
@@ -106,37 +127,18 @@ switch ($accion){
         </div>
 
         <div class = "form-group">
-<<<<<<< HEAD
-        <label for="txtNombre">Imagen:</label>
-
-        <?php echo $txtImagen; ?>
-</br>
-
-        <?php if($txtImagen!=""){?>
-
-            <img src="../../img1/<?php echo $txtImagen?>" width="50" alt="" srcset="">
-
-        <?php } ?>
-=======
         <label for="txtNombre">Imagen</label>
 
 </br>
         <?php echo $txtImagen?>
->>>>>>> c5521a308cd94467bc922e278e398dbf74ef506d
 
         <input type="file" class="form-control" name="txtImagen" id="txtImagen" placeholder="Nombre">
         </div>
 
         <div class="btn-group" role="group" aria-label="">
-<<<<<<< HEAD
-            <button type="submit" name="accion" <?php echo ($accion=="Selecionar")?"disabled":""; ?> value="Agregar" class="btn btn-success">Agregar</button>
-            <button type="submit" name="accion" value="Modificar" class="btn btn-warning">Modificar</button>
-            <button type="submit" name="accion" <?php echo ($accion!="Selecionar")?"disabled":""; ?> value="Cancelar" class="btn btn-info">Cancelar</button>
-=======
             <button type="submit" name="accion" value="Agregar" class="btn btn-success">Agregar</button>
             <button type="submit" name="accion" value="Modificar" class="btn btn-warning">Modificar</button>
             <button type="submit" name="accion" value="Cancelar" class="btn btn-info">Cancelar</button>
->>>>>>> c5521a308cd94467bc922e278e398dbf74ef506d
         </div>
 
         </form>
@@ -160,7 +162,7 @@ switch ($accion){
             <td><?php echo $recetas['id'];?></td>
             <td><?php echo $recetas['nombre'];?></td>
             <td>
-                <img src="../../img1/<?php echo $recetas['imagen'];?>" width="50" alt="" srcset="">
+                <?php echo $recetas['imagen'];?>
             </td>
 
             <td>
