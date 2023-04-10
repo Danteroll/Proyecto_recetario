@@ -2,10 +2,10 @@
 $host="localhost";
 $bd="sitio";
 $usuario="root";
-$contraseña="";
+$contrasena="";
 
 try {
-    $conexion=new PDO("mysql:host=$host;dbname=$bd",$usuario,$contraseña);
+    $conexion=new PDO("mysql:host=$host;dbname=$bd",$usuario,$contrasena);
 
 } catch (Exception $ex) {
     echo $ex->getMessag();
