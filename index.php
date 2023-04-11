@@ -258,7 +258,7 @@
     <section id="contacto">
         <div class="fila">
             <div class="col">
-                <h1>Q'RICO</h1>
+                <h1>K'RIQUISIMO</h1>
             </div>
             <div class="col">
                 <h3>Menú</h3>
@@ -281,11 +281,6 @@
                 <div class="media">
                     <i class="fa-brands fa-instagram"></i> <a href="#">Instagram</a>
                 </div>
-            </div>
-            <div class="col">
-                <h3>Contacto</h3>
-                <input type="text" placeholder="Tu correo">
-                <input type="submit" class="enviar">
             </div>
         </div>
 
