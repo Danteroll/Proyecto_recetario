@@ -37,7 +37,7 @@
         <header>
             <div class="contenido-header">
                 <div class="logo">
-                    <h1>K' RIQUISIMO</h1>
+                    <h1>Q' RIQUISIMO</h1>
                 </div>
                 <nav id="nav">
                     <ul>
