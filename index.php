@@ -1,18 +1,17 @@
 <?php
+session_start();
 
-    session_start();
 
-    if(!isset($_SESSION['usuario'])){
-        echo '
-            <script>
-            alert("Por favor debes iniciar sesión");
-            window.location = "formulario.php";
-            </script>
-        ';
-        session_destroy();
-        die();
-    }
-
+if(!isset($_SESSION['usuario'])){
+    echo '
+    <script>
+    alert("Por favor debes iniciar sesión");
+    window.location = "formulario.php";
+    </script>
+    ';
+    session_destroy();
+    die();
+}
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +31,9 @@
 
 </head>
 <body>
+<?php 
+echo "El ID del usuario almacenado en la sesión es: " . $_SESSION['usuario'];
+?>
     <!-- SECCION INICIO -->
     <section id="inicio">
         <header>

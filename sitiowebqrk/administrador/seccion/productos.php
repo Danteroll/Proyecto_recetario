@@ -1,3 +1,18 @@
+<?php
+session_start();
+
+
+if(!isset($_SESSION['usuario'])){
+    echo '
+    <script>
+    alert("Por favor debes iniciar sesión");
+    window.location = "formulario.php";
+    </script>
+    ';
+    session_destroy();
+    die();
+}
+?>
 <?php include("../template/cabecera.php");?>
 <?php
 $txtID=(isset($_POST['txtID']))?$_POST['txtID']:"";
@@ -5,53 +20,53 @@ $txtNombre=(isset($_POST['txtNombre']))?$_POST['txtNombre']:"";
 
 $txtImagen=(isset($_FILES['txtImagen']['name']))?$_FILES['txtImagen']['name']:"";
 $accion=(isset($_POST['accion']))?$_POST['accion']:"";
-
 include("../config/bd.php");
 
 switch ($accion){
     
     case "Agregar":
-        $sentenciaSQL= $conexion->prepare("INSERT INTO recetas (nombre,imagen) VALUES (:nombre,:imagen);");
+        $sentenciaSQL= $conexion->prepare("INSERT INTO recetas (nombre,imagen, id_usuario) VALUES (:nombre,:imagen, :id_usuario);");
         $sentenciaSQL->bindParam(':nombre',$txtNombre);
-
+        
         $fecha = new DateTime();
         $nombreArchivo = ($txtImagen!="")?$fecha->getTimestamp()."_".$_FILES["txtImagen"]["name"]:"imagen.jpg";
-
+        
         $tmpImagen=$_FILES["txtImagen"]["tmp_name"];
-
+        
         if($tmpImagen!=""){
             move_uploaded_file($tmpImagen, "../../img1/" .$nombreArchivo);
         }
-
+        
         $sentenciaSQL->bindParam(':imagen',$nombreArchivo);
+        $sentenciaSQL->bindParam(':id_usuario', $_SESSION['usuario']);
         $sentenciaSQL->execute();
         header("Location:productos.php");
         break;
-
-    case "Modificar":
-
+        
+        case "Modificar":
+            
         $sentenciaSQL=$conexion->prepare("UPDATE recetas SET nombre=:nombre WHERE id=:id");
         $sentenciaSQL->bindParam(':nombre',$txtNombre);
-        $sentenciaSQL->bindParam(':id',$txtID);
+        $sentenciaSQL->bindParam(':id',$txtID); 
         $sentenciaSQL->execute();
-
+        
         if($txtImagen!=""){
-
+            
             $fecha = new DateTime();
             $nombreArchivo = ($txtImagen!="")?$fecha->getTimestamp()."_".$_FILES["txtImagen"]["name"]:"imagen.jpg";
             $tmpImagen=$_FILES["txtImagen"]["tmp_name"];
-
+            
             move_uploaded_file($tmpImagen, "../../img1/" .$nombreArchivo);
-
+            
             $sentenciaSQL=$conexion->prepare("SELECT imagen FROM recetas WHERE id=:id");
             $sentenciaSQL->bindParam(':id',$txtID);
             $sentenciaSQL->execute();
             $recetas=$sentenciaSQL->fetch(PDO::FETCH_LAZY);
-
+            
             if(isset($recetas["imagen"]) &&($recetas["imagen"]!="imagen.jpg") ){
-
+                
                 if(file_exists("../../img1/".$recetas["imagen"])){
-
+                    
                     unlink("../../img1/".$recetas["imagen"]);
                 }
             }
@@ -61,46 +76,46 @@ switch ($accion){
             $sentenciaSQL->bindParam(':id',$txtID);
             $sentenciaSQL->execute();
         }
-
+        
         //echo "Presionado boton modificar";
-            break;
-
-    case "Cancelar":
+        break;
+        
+        case "Cancelar":
        header("Location:productos.php");
-            break;
-
-    case "Seleccionar":
-
+       break;
+       
+       case "Seleccionar":
+        
         $sentenciaSQL=$conexion->prepare("SELECT * FROM recetas WHERE id=:id");
         $sentenciaSQL->bindParam(':id',$txtID);
         $sentenciaSQL->execute();
         $recetas=$sentenciaSQL->fetch(PDO::FETCH_LAZY);
-
+        
         $txtNombre=$recetas['nombre'];
         $txtImagen=$recetas['imagen'];
-
+        
         //echo "Presionado boton seleccionar";
-            break;
-
-    case "Borrar":
-       
-        $sentenciaSQL=$conexion->prepare("SELECT imagen FROM recetas WHERE id=:id");
-        $sentenciaSQL->bindParam(':id',$txtID);
-        $sentenciaSQL->execute();
-        $recetas=$sentenciaSQL->fetch(PDO::FETCH_LAZY);
-
-        if(isset($recetas["imagen"]) &&($recetas["imagen"]!="imagen.jpg") ){
-
-            if(file_exists("../../img1/".$recetas["imagen"])){
-
-                unlink("../../img1/".$recetas["imagen"]);
+        break;
+        
+        case "Borrar":
+            
+            $sentenciaSQL=$conexion->prepare("SELECT imagen FROM recetas WHERE id=:id");
+            $sentenciaSQL->bindParam(':id',$txtID);
+            $sentenciaSQL->execute();
+            $recetas=$sentenciaSQL->fetch(PDO::FETCH_LAZY);
+            
+            if(isset($recetas["imagen"]) &&($recetas["imagen"]!="imagen.jpg") ){
+                
+                if(file_exists("../../img1/".$recetas["imagen"])){
+                    
+                    unlink("../../img1/".$recetas["imagen"]);
+                }
             }
-        }
        
-        $sentenciaSQL= $conexion->prepare("DELETE FROM recetas WHERE id=:id");
-        $sentenciaSQL->bindParam(':id',$txtID);
-        $sentenciaSQL->execute();
-        header("Location:productos.php");
+            $sentenciaSQL= $conexion->prepare("DELETE FROM recetas WHERE id=:id");
+            $sentenciaSQL->bindParam(':id',$txtID);
+            $sentenciaSQL->execute();
+            header("Location:productos.php");
             break;
     }
     $sentenciaSQL= $conexion->prepare("SELECT * FROM recetas");
@@ -110,6 +125,7 @@ switch ($accion){
 <div class="col-md-5">
 
 <div class="card">
+
     <div class="card-header">
         Datos de las recetas
     </div>
