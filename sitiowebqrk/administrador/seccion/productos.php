@@ -118,7 +118,9 @@ switch ($accion){
             header("Location:productos.php");
             break;
     }
-    $sentenciaSQL= $conexion->prepare("SELECT * FROM recetas");
+    $id_usuario = $_SESSION['usuario'];
+    $sentenciaSQL = $conexion->prepare("SELECT * FROM recetas WHERE id_usuario = :id_usuario");
+    $sentenciaSQL->bindParam(':id_usuario', $id_usuario);
     $sentenciaSQL->execute();
     $listarecetas = $sentenciaSQL->fetchAll(PDO::FETCH_ASSOC);
 ?>
@@ -167,40 +169,39 @@ switch ($accion){
     </div>
 </div>
 <div class="col-md-7">
-   <table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Imagen</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-    <?php foreach($listarecetas as $recetas) { ?>
-        <tr>
-            <td><?php echo $recetas['id'];?></td>
-            <td><?php echo $recetas['nombre'];?></td>
-            <td>
-                <img class="img-thumbnail rounded" src="../../img1/<?php echo $recetas['imagen'];?>" width="100" alt="" srcset="">
-            </td>
-
-            <td>
-
-            <form method="post">
-
-            <input type="hidden" name="txtID" id="txtID" value="<?php echo $recetas['id'];?>"/>
-            <input type="submit" name="accion" value="Seleccionar" class="btn btn-primary" />
-            <input type="submit" name="accion" value="Borrar" class="btn btn-danger" />
-            </form>
-            
-            </td>
-
-        </tr>
-    <?php }?>
-    </tbody>
-    
-   </table>   
+<?php if(!empty($listarecetas)) { ?>
+    <table class="table table-bordered">
+        <!-- Encabezado de la tabla -->
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Imagen</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Ciclo para mostrar cada receta -->
+            <?php foreach($listarecetas as $receta) { ?>
+                <tr>
+                    <td><?php echo $receta['id']; ?></td>
+                    <td><?php echo $receta['nombre']; ?></td>
+                    <td><img class="img-thumbnail rounded" src="../../img1/<?php echo $receta['imagen']; ?>" width="100" alt="" srcset=""></td>
+                    <td>
+                        <form method="post">
+                            <input type="hidden" name="txtID" id="txtID" value="<?php echo $receta['id']; ?>"/>
+                            <input type="submit" name="accion" value="Seleccionar" class="btn btn-primary" />
+                            <input type="submit" name="accion" value="Borrar" class="btn btn-danger" />
+                        </form>
+                    </td>
+                </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+<?php } else { ?>
+    <h1>Agrega una nueva receta.</h1>
+<?php } ?>
+</tbody>
 </div>
 
 
