@@ -1,19 +1,3 @@
-<?php
-session_start();
-
-
-if(!isset($_SESSION['usuario'])){
-    echo '
-    <script>
-    alert("Por favor debes iniciar sesión");
-    window.location = "formulario.php";
-    </script>
-    ';
-    session_destroy();
-    die();
-}
-?>
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -31,9 +15,6 @@ if(!isset($_SESSION['usuario'])){
 
 </head>
 <body>
-<?php 
-echo "El ID del usuario almacenado en la sesión es: " . $_SESSION['usuario'];
-?>
     <!-- SECCION INICIO -->
     <section id="inicio">
         <header>
@@ -75,11 +56,7 @@ echo "El ID del usuario almacenado en la sesión es: " . $_SESSION['usuario'];
                     </ul>
                 </nav>
                 <div class="social">
-                    <a href="php/cerrar_sesion.php">
-                        Cerrar Sesión
-                    </a>
-                    <a href=""><i class="fa-brands fa-instagram"></i></a>
-                    <a href="perfil.php"><i class="fa-solid fa-user"></i></a> 
+                    <a href="perfil/home.php"><i class="fa-solid fa-user"></i></a> 
                 </div>
                 <div class="nav-responsive" id="bar" onclick="mostrarOcultarMenu()">
                     <i class="fa-solid fa-bars"></i>

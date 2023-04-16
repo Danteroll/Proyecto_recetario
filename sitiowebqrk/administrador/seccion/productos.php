@@ -1,18 +1,18 @@
 <?php
 session_start();
 
-
 if(!isset($_SESSION['usuario'])){
     echo '
     <script>
-    alert("Por favor debes iniciar sesión");
-    window.location = "formulario.php";
+        alert("Para agregar una receta debes iniciar sesión");
+        window.location = "../../../formulario.php";
     </script>
     ';
     session_destroy();
     die();
 }
 ?>
+
 <?php include("../template/cabecera.php");?>
 <?php
 $txtID=(isset($_POST['txtID']))?$_POST['txtID']:"";
@@ -173,6 +173,7 @@ switch ($accion){
     <table class="table table-bordered">
         <!-- Encabezado de la tabla -->
         <thead>
+            <h2>Tus recetas:</h2>
             <tr>
                 <th>ID</th>
                 <th>Nombre</th>

@@ -10,6 +10,9 @@ $contrasena = hash('sha512', $contrasena);
 
 $validar_login = mysqli_query($conexion, "SELECT * FROM usuarios WHERE correo='$correo' 
 and contrasena='$contrasena' ");
+if(!$validar_login){
+    die("Error al ejecutar la consulta: " . mysqli_error($conexion));
+}
 
 if(mysqli_num_rows($validar_login) > 0 ){
     // Obtener el ID del usuario a partir del correo electrónico

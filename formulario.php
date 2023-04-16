@@ -1,9 +1,13 @@
 <?php
 
     session_start();
-
     if(isset($_SESSION['usuario'])){
         header("location: index.php");
+    }
+    if(isset($_GET['logout'])){
+        session_destroy();
+        header("Location: formulario.php");
+        exit;
     }
 ?>
 <!DOCTYPE html>
