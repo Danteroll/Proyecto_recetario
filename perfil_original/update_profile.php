@@ -86,20 +86,20 @@ if(isset($_POST['update_profile'])){
       ?>
       <div class="flex">
          <div class="inputBox">
-            <span>username :</span>
+            <h2>username :</h2>
             <input type="text" name="update_name" value="<?php echo $fetch['name']; ?>" class="box">
-            <span>your email :</span>
+            <h2>your email :</h2>
             <input type="email" name="update_email" value="<?php echo $fetch['email']; ?>" class="box">
-            <span>update your pic :</span>
+            <h2>update your pic :</h2>
             <input type="file" name="update_image" accept="image/jpg, image/jpeg, image/png" class="box">
          </div>
          <div class="inputBox">
             <input type="hidden" name="old_pass" value="<?php echo $fetch['password']; ?>">
-            <span>old password :</span>
+            <h2>old password :</h2>
             <input type="password" name="update_pass" placeholder="enter previous password" class="box">
-            <span>new password :</span>
+            <h2>new password :</h2>
             <input type="password" name="new_pass" placeholder="enter new password" class="box">
-            <span>confirm password :</span>
+            <h2>confirm password :</h2>
             <input type="password" name="confirm_pass" placeholder="confirm new password" class="box">
          </div>
       </div>
