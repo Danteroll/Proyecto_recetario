@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>K' RIQUISIMO</title>
+    <title>Q' RIQUISIMO</title>
     <script
     defer
     src="https://app.embed.im/snow.js"></script>
@@ -31,18 +31,18 @@
                             </a>
                         </li>
                         <li>
-                            <a href="sitiowebqrk/administrador/seccion/productos.php" onclick="seleccionar()">
+                            <a href="BlogMadre_Recetario/admin/index.php?view=posts&opt=all" onclick="seleccionar()">
                                 <i class="fa-regular fa-rectangle-list"></i>
-                                <span>Agregar receta</span>
+                                <span>Agregar Receta</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#platos" onclick="seleccionar()">
+                            <a href="BlogMadre_Recetario/?view=blog" onclick="seleccionar()">
                                 <i class="fa-solid fa-utensils"></i>
-                                <span>Platos</span>
+                                <span>Ver Platillos</span>
                             </a></li>
                         <li>
-                            <a href="#blog" onclick="seleccionar()">
+                            <a href="BlogMadre_Recetario\core\app\view\blog-view.php" onclick="seleccionar()">
                                 <i class="fa-solid fa-pen"></i>
                                 <span>Blog</span>
                             </a>
@@ -90,7 +90,7 @@
 
     <!-- SECCION SABORES -->
     <section id="sabores">
-        <h2>Sabores</h2>
+        <h2>Categorias</h2>
         <div class="fila">
             <div class="item">
                 <div class="icono">
@@ -98,7 +98,7 @@
                 </div>
                 <div class="info">
                     <h3>Ensaladas</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p>Recetas de ensaladas faciles y rapidas.</p>
                 </div>
             </div>
             <div class="item">
@@ -106,8 +106,8 @@
                     <img src="img/sabor2.png" alt="">
                 </div>
                 <div class="info">
-                    <h3>Tortas</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <h3>Pasteles</h3>
+                    <p>Pateles ricos capaces de darle un gusto a tu paladar.</p>
                 </div>
             </div>
             <div class="item">
@@ -116,7 +116,7 @@
                 </div>
                 <div class="info">
                     <h3>Hamburguesas</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p>Una dieta equilibrada es una hamburguesa en ambas manos.</p>
                 </div>
             </div>
         </div>
@@ -127,8 +127,8 @@
                     <img src="img/sabor4.png" alt="">
                 </div>
                 <div class="info">
-                    <h3>Helados</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <h3>Guisos</h3>
+                    <p>Guisos de todo tipo, variados al gusto de las personas.</p>
                 </div>
             </div>
             <div class="item">
@@ -137,7 +137,7 @@
                 </div>
                 <div class="info">
                     <h3>Pastas</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p>Los sabores que te harán sentir bien.</p>
                 </div>
             </div>
             <div class="item">
@@ -145,8 +145,8 @@
                     <img src="img/sabor6.png" alt="">
                 </div>
                 <div class="info">
-                    <h3>Galletas</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <h3>Comida</h3>
+                    <p>Todo tipo de comida, toda variedad y exclusividad.</p>
                 </div>
             </div>
         </div>
