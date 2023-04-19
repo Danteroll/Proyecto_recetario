@@ -8,68 +8,65 @@ if(isset($_POST['update_profile'])){
 
    $update_name = mysqli_real_escape_string($conexion, $_POST['update_name']);
    $update_email = mysqli_real_escape_string($conexion, $_POST['update_email']);
-
-   $verificar_correo = mysqli_query($conexion, "SELECT * FROM usuarios WHERE correo='$update_email' ");
-
-   if(mysqli_num_rows($verificar_correo) > 0){
-       echo '
-           <script>
-               alert("Este correo ya está registrado, intenta con otro diferente");
-               window.location = "update_profile.php";
-           </script>
-       ';
-       exit();
-   }
-
-   $verificar_usuario = mysqli_query($conexion, "SELECT * FROM usuarios WHERE usuario='$update_name' ");
-
-   if(mysqli_num_rows($verificar_usuario) > 0){
-       echo '
-           <script>
-               alert("Este usuario ya está registrado, intenta con otro diferente");
-               window.location = "update_profile.php";
-           </script>
-       ';
-       exit();
-   }
-
-   mysqli_query($conexion, "UPDATE usuarios SET usuario = '$update_name', correo = '$update_email' WHERE id = '$user_id'") or die('query failed');
-
-   $old_pass = hash('sha512', $_POST['old_pass']);
-   $update_pass = mysqli_real_escape_string($conexion, hash('sha512', $_POST['update_pass']));
-   $new_pass = mysqli_real_escape_string($conexion, hash('sha512', $_POST['new_pass']));
-   $confirm_pass = mysqli_real_escape_string($conexion, hash('sha512', $_POST['confirm_pass']));
-
-   if (!empty($update_pass) || !empty($new_pass) || !empty($confirm_pass)) {
-      if (empty($old_pass)) {
-        $message[] = 'old password is required!';
-      } elseif ($update_pass != $old_pass) {
-        $message[] = 'old password not matched!';
-      } elseif ($new_pass != $confirm_pass) {
-        $message[] = 'confirm password not matched!';
-      } else {
-        mysqli_query($conexion, "UPDATE usuarios SET contrasena = '$confirm_pass' WHERE id = '$user_id'") or die('query failed');
-        $message[] = 'password updated successfully!';
-      }
-    }
-
    $update_image = $_FILES['update_image']['name'];
    $update_image_size = $_FILES['update_image']['size'];
    $update_image_tmp_name = $_FILES['update_image']['tmp_name'];
    $update_image_folder = 'uploaded_img/'.$update_image;
 
-   if(!empty($update_image)){
-      if($update_image_size > 2000000){
-         $message[] = 'image is too large';
-      }else{
-         $image_update_query = mysqli_query($conexion, "UPDATE usuarios SET image = '$update_image' WHERE id = '$user_id'") or die('query failed');
-         if($image_update_query){
-            move_uploaded_file($update_image_tmp_name, $update_image_folder);
-         }
-         $message[] = 'image updated succssfully!';
-      }
+   // Verificar si el correo ya existe en la base de datos
+   if(!empty($update_email)){
+       $verificar_correo = mysqli_query($conexion, "SELECT * FROM usuarios WHERE correo='$update_email' ");
+       if(mysqli_num_rows($verificar_correo) > 0){
+           echo '
+               <script>
+                   alert("Este correo ya está registrado, intenta con otro diferente");
+                   window.location = "update_profile-user.php";
+               </script>
+           ';
+           exit();
+       }
    }
 
+   // Verificar si el nombre de usuario ya existe en la base de datos
+   if(!empty($update_name)){
+       $verificar_usuario = mysqli_query($conexion, "SELECT * FROM usuarios WHERE usuario='$update_name' ");
+       if(mysqli_num_rows($verificar_usuario) > 0){
+           echo '
+               <script>
+                   alert("Este usuario ya está registrado, intenta con otro diferente");
+                   window.location = "update_profile-user.php";
+               </script>
+           ';
+           exit();
+       }
+   }
+
+   // Actualizar el correo y/o el nombre de usuario
+   if(!empty($update_email) || !empty($update_name)){
+       if(empty($update_email)){
+           mysqli_query($conexion, "UPDATE `usuarios` SET usuario = '$update_name' WHERE id = '$user_id'") or die('query failed');
+           $message[] = 'Nombre de usuario actualizado correctamente!';
+       } elseif(empty($update_name)){
+           mysqli_query($conexion, "UPDATE `usuarios` SET correo = '$update_email' WHERE id = '$user_id'") or die('query failed');
+           $message[] = 'Correo actualizado correctamente!';
+       } else {
+           mysqli_query($conexion, "UPDATE `usuarios` SET usuario = '$update_name', correo = '$update_email' WHERE id = '$user_id'") or die('query failed');
+           $message[] = 'Nombre de usuario y correo actualizados correctamente!';
+       }
+   }
+
+   // Actualizar la imagen de perfil
+   if(!empty($update_image)){
+       if($update_image_size > 2000000){
+           $message[] = 'La imagen es muy grande';
+       } else {
+           $image_update_query = mysqli_query($conexion, "UPDATE usuarios SET image = '$update_image' WHERE id = '$user_id'") or die('query failed');
+           if($image_update_query){
+               move_uploaded_file($update_image_tmp_name, $update_image_folder);
+           }
+           $message[] = 'Imagen actualizada correctamente!';
+       }
+   }
 }
 
 ?>
@@ -84,7 +81,6 @@ if(isset($_POST['update_profile'])){
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
-   <link rel="stylesheet" href="../formulario.css">
 
 </head>
 <body>
@@ -113,16 +109,16 @@ if(isset($_POST['update_profile'])){
       ?>
       <div class="flex">
          <div class="inputBox">
-            <span>username :</span>
-            <input type="text" name="update_name" value="<?php echo $fetch['usuario']; ?>" class="box">
-            <span>your email :</span>
-            <input type="email" name="update_email" value="<?php echo $fetch['correo']; ?>" class="box">
-            <span>update your pic :</span>
+            <span>Usuario :</span>
+            <input type="text" name="update_name" placeholder="escribe un nuevo usuario si deseas cambiarlo" class="box">
+            <span>Tu correo :</span>
+            <input type="email" name="update_email" placeholder="escribe un nuevo correo si deseas cambiarlo" class="box">
+            <span>Actualiza tu foto :</span>
             <input type="file" name="update_image" accept="image/jpg, image/jpeg, image/png" class="box">
          </div>
       </div>
-      <input type="submit" value="update profile" name="update_profile" class="btn">
-      <a href="home.php" class="delete-btn">go back</a>
+      <input type="submit" value="actualizar tu perfil" name="update_profile" class="btn">
+      <a href="home.php" class="delete-btn">regresar</a>
    </form>
 
    

@@ -47,7 +47,7 @@ if(isset($_GET['logout'])){
       ?>
       <h3><?php echo $fetch['usuario']; ?></h3>
       <a href="update_profile-user.php" class="btn">Actualizar Usuario</a>
-      <a href="update_profile-pass.php" class="btn">Actualizar Contraseña</a>
+      <!--<a href="update_profile-pass.php" class="btn">Actualizar Contraseña</a>-->
       <a href="../php/cerrar_sesion.php" class="delete-btn">Cerrar sesion</a>
    </div>
 
