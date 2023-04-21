@@ -28,6 +28,7 @@ if(isset($_GET['logout'])){
     <!-- custom css file link  -->
     <link rel="stylesheet" href="css/style.css">
 
+
 </head>
 <body>
    
@@ -49,6 +50,7 @@ if(isset($_GET['logout'])){
       <a href="update_profile-user.php" class="btn">Actualizar Usuario</a>
       <!--<a href="update_profile-pass.php" class="btn">Actualizar Contraseña</a>-->
       <a href="../php/cerrar_sesion.php" class="delete-btn">Cerrar sesion</a>
+      <p><a href="../index.php">Regresar</a></p>
    </div>
 
 </div>
