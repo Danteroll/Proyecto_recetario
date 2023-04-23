@@ -180,26 +180,28 @@
    background-color: var(--white);
    box-shadow: var(--box-shadow);
    text-align: center;
-   width: 550px;
+   width: 700px;
    text-align: center;
    border-radius: 5px;
 }
 
 .update-profile form img{
    height: 200px;
-   width: 200px;
+   width: 200p;
    border-radius: 50%;
    object-fit: cover;
    margin-bottom: 5px;
 }
 
 .update-profile form .flex{
+   display: flex;
+   justify-content: space-between;
    margin-bottom: 20px;
    gap:15px;
 }
 
 .update-profile form .flex .inputBox{
-   width: 100%;
+   width: 49%;
 }
 
 .update-profile form .flex .inputBox span{

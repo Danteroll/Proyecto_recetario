@@ -2,17 +2,16 @@
 
 include 'config.php';
 session_start();
-$user_id = $_SESSION['usuario'];
+$user_id = $_SESSION['user_id'];
 
 if(!isset($user_id)){
-   header('location:../formulario.php');
+   header('location:login.php');
 };
 
 if(isset($_GET['logout'])){
-   session_unset();
+   unset($user_id);
    session_destroy();
-   header('location:../formulario.php');
-   exit();
+   header('location:login.php');
 }
 
 ?>
@@ -28,7 +27,6 @@ if(isset($_GET['logout'])){
     <!-- custom css file link  -->
     <link rel="stylesheet" href="css/style.css">
 
-
 </head>
 <body>
    
@@ -36,7 +34,7 @@ if(isset($_GET['logout'])){
 
    <div class="profile">
       <?php
-         $select = mysqli_query($conexion, "SELECT * FROM `usuarios` WHERE id = '$user_id'") or die('query failed');
+         $select = mysqli_query($conn, "SELECT * FROM `user_form` WHERE id = '$user_id'") or die('query failed');
          if(mysqli_num_rows($select) > 0){
             $fetch = mysqli_fetch_assoc($select);
          }
@@ -46,11 +44,10 @@ if(isset($_GET['logout'])){
             echo '<img src="uploaded_img/'.$fetch['image'].'">';
          }
       ?>
-      <h3><?php echo $fetch['usuario']; ?></h3>
-      <a href="update_profile-user.php" class="btn">Actualizar Usuario</a>
-      <!--<a href="update_profile-pass.php" class="btn">Actualizar Contraseña</a>-->
-      <a href="../php/cerrar_sesion.php" class="delete-btn">Cerrar sesion</a>
-      <p><a href="../index.php">Regresar</a></p>
+      <h3><?php echo $fetch['name']; ?></h3>
+      <a href="update_profile.php" class="btn">update profile</a>
+      <a href="home.php?logout=<?php echo $user_id; ?>" class="delete-btn">logout</a>
+      <p>new <a href="login.php">login</a> or <a href="register.php">register</a></p>
    </div>
 
 </div>
