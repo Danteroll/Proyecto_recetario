@@ -1,3 +1,6 @@
+<?php 
+include 'conexion_be.php';
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,18 +34,23 @@
         }
 
         .alert-icon {
-            background-image: "../img-formulario/fondo_formulario.jpg";
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 16px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: #3b5998;
-            color: #fff;
-            font-size: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 16px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #3b5998;
+        color: #fff;
+        font-size: 24px;
+        overflow: hidden;
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-image: url('../img-formulario/fondo_formulario.jpg');
         }
+
 
         .alert-text {
             display: flex;
@@ -102,5 +110,10 @@
     session_start();
     session_destroy();
     ?>
+    <script>
+    setTimeout(function() {
+        window.location.href = "../index.php";
+    }, 2500);
+</script>
 </body>
 </html>
