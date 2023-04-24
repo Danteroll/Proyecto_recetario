@@ -41,6 +41,7 @@
                     <h2>Iniciar Sesión</h2>
                     <input type="text" placeholder="Correo Electronico" name="correo" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" oninvalid="mostrarAlerta2(this.validity.patternMismatch ? 'correo electrónico' : 'longitud')" required>
                     <input type="password" placeholder="Contraseña" name="contrasena" pattern="^(?!.*\s{2})[A-Za-z0-9]+(\s?[A-Za-z0-9]+)?$" oninvalid="mostrarAlerta(this.validity.patternMismatch ? 'caracteres' : 'longitud')" required>
+                    <a href="reset-pass/forgot_password.html">¿Olvidaste tu contraseña?</a>
                     <button>Entrar</button>
                 </form>
 

@@ -30,6 +30,18 @@ main{
     margin-top: 100px;
 }
 
+a{
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 20%;
+}
+
+a:hover{
+    background: #fff;
+    color: rgb(15, 151, 15);
+}
+
 .contenedor__todo{
     width: 100%;
     max-width: 800px;
@@ -84,7 +96,7 @@ main{
 
 .caja__trasera button:hover{
     background: #fff;
-    color: #46A2FD;
+    color: rgb(151, 15, 15);
 }
 
 /*Formularios*/
@@ -130,6 +142,7 @@ main{
 .contenedor__login-register form button{
     padding: 10px 40px;
     margin-top: 40px;
+    margin-left: 29%;
     border: none;
     font-size: 14px;
     background: red;

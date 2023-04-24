@@ -33,7 +33,7 @@
                         <li>
                             <a href="BlogMadre_Recetario/admin/index.php?view=posts&opt=all" onclick="seleccionar()">
                                 <i class="fa-regular fa-rectangle-list"></i>
-                                <span>Agregar Receta</span>
+                                <span>Mis Recetas</span>
                             </a>
                         </li>
                         <li>
@@ -80,9 +80,9 @@
                 </div>
             </div>
             <div class="info">
-                <h2>Comidas exquistias para el paladar </h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
-                <button>Leer Más</button>
+                <h2>Recetas de todo el mundo</h2>
+                <p>¿Quieres compartir tu receta favorita de tu localidad?</p>
+                <button href="">Haz clic aqui</button>
             </div>
         </div>
 
