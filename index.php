@@ -31,10 +31,19 @@
                             </a>
                         </li>
                         <li>
-                            <a href="BlogMadre_Recetario/admin/index.php?view=posts&opt=all" onclick="seleccionar()">
-                                <i class="fa-regular fa-rectangle-list"></i>
-                                <span>Mis Recetas</span>
-                            </a>
+                        <?php
+                        session_start();
+
+                        if (isset($_SESSION['usuario']) && $_SESSION['usuario'] == 36) {
+                        ?>
+                        <a href="BlogMadre_Recetario/admin/index.php?view=posts&opt=all" onclick="seleccionar()">
+                            <i class="fa-regular fa-rectangle-list"></i>
+                            <span>Mis Recetas</span>
+                        </a>
+                        <?php
+                        } else {
+                        }
+                        ?>
                         </li>
                         <li>
                             <a href="BlogMadre_Recetario/?view=blog" onclick="seleccionar()">

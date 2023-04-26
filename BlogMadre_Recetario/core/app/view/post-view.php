@@ -1,4 +1,9 @@
 <?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+<?php
 $jb  = PostData::getById($_GET["id"]);
 ?>
 
@@ -22,41 +27,46 @@ $jb  = PostData::getById($_GET["id"]);
 </div>
 </div>
 
-<div class="panel panel-default">
-<div class="panel-heading">Escribir comentario</div>
-<div class="panel-body">
+<?php
+if (isset($_SESSION['usuario'])) {
+    // mostrar el formulario para escribir un comentario
+    ?>
+    <div class="panel panel-default">
+        <div class="panel-heading">Escribir comentario</div>
+        <div class="panel-body">
+            <form method="post" action="./?action=send" enctype="multipart/form-data">
+                <input type="hidden" name="post_id" value="<?php echo $jb->id; ?>">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Nombre</label>
+                    <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Correo electrónico</label>
+                    <input type="email" name="email" required class="form-control" id="exampleInputEmail1" placeholder="Correo electrónico">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Comentarios</label>
+                    <textarea name="comment" class="form-control" id="exampleInputEmail1" placeholder="Comentarios" required rows="3"></textarea>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" name="accept" required> Acepto los términos y condiciones
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-default">Enviar datos</button>
+            </form>
+        </div>
+    </div>
+    <?php
+} else {
+    // mostrar un botón para iniciar sesión
+    ?>
+    <button onclick="window.location.href='../../Proyecto_recetario/formulario.php'" style="margin: 10px;">Iniciar sesión para escribir un comentario</button>
+    <?php
+}
+?>
 
-<form method="post" action="./?action=send" enctype="multipart/form-data">
-<input type="hidden" name="post_id" value="<?php echo $jb->id; ?>">
-  <div class="form-group">
-    <label for="exampleInputEmail1">Nombre</label>
-    <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="Nombre" required>
-  </div>
 
-
-  <div class="form-group">
-    <label for="exampleInputEmail1">Correo electronico</label>
-    <input type="email" name="email" required class="form-control" id="exampleInputEmail1" placeholder="Correo electronico">
-  </div>
-
-
-  <div class="form-group">
-    <label for="exampleInputEmail1">Comentarios</label>
-    <textarea name="comment" class="form-control" id="exampleInputEmail1" placeholder="Comentarios" required rows="3"></textarea>
-  </div>
-
-
-
-  <div class="checkbox">
-    <label>
-      <input type="checkbox" name="accept" required> Acepto los terminos y condiciones
-    </label>
-  </div>
-  <button type="submit" class="btn btn-default">Enviar datos</button>
-</form>
-
-</div>
-</div>
 
 
 
