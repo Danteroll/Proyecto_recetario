@@ -1,6 +1,6 @@
 <div class="container">
 <div class="row">
-<h1 class="text-center">EVILNAPSIS</h1>
+<h1 class="text-center">Q' RIQUISIMO</h1>
 <div class="col-md-12">
 <div class="row">
 <div class="col-md-4 col-md-offset-4">

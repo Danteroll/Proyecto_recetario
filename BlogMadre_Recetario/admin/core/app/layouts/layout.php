@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>BLOGELIN | Panel de Administracion</title>
+    <title>Q RIQUISIMO | Panel de Administracion</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.4 -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -10,7 +10,7 @@
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
     <link href="dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
-    <link href="dist/css/skins/skin-blue-light.min.css" rel="stylesheet" type="text/css" />
+    <link href="dist/css/skins/skin-red.min.css" rel="stylesheet" type="text/css" />
     <script src="plugins/jquery/jquery-2.1.4.min.js"></script>
 <script src="plugins/morris/raphael-min.js"></script>
 <script src="plugins/morris/morris.js"></script>
@@ -39,7 +39,7 @@ $(document).ready(function(){
 </script>
   </head>
 
-  <body class="<?php if(isset($_SESSION["user_id"])  ):?>  skin-blue-light sidebar-mini <?php else:?>login-page<?php endif; ?>" >
+  <body class="<?php if(isset($_SESSION["user_id"])  ):?>  skin-red sidebar-mini <?php else:?>login-page<?php endif; ?>" >
     <div class="wrapper">
       <!-- Main Header -->
       <?php if(isset($_SESSION["user_id"])):?>
@@ -47,9 +47,9 @@ $(document).ready(function(){
         <!-- Logo -->
         <a href="./" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>B</b>L</span>
+          <span class="logo-mini"><b>Q</b>´</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>BLOGELIN</b></span>
+          <span class="logo-lg"><b>Q' RIQUISIMO</b></span>
         </a>
 
         <!-- Header Navbar -->
@@ -116,8 +116,8 @@ $(document).ready(function(){
             <?php if(isset($_SESSION["user_id"])):?>
 
               <?php $u = UserData::getById($_SESSION["user_id"]); ?>
-            <li><a href="./index.php?view=home"><i class='fa fa-dashboard'></i> <span>Inicio</span></a></li>
-            <li><a href="./index.php?view=posts&opt=all"><i class='fa fa-file-text'></i> <span>Articulos</span></a></li>
+              <li><a href="/Proyecto_recetario/#inicio"><i class='fa fa-file-text'></i> <span>Página principal</span></a></li>
+            <li><a href="./index.php?view=posts&opt=all"><i class='fa fa-file-text'></i> <span>Agregar nueva receta</span></a></li>
             <li><a href="./index.php?view=comments"><i class='fa fa-comment'></i> <span>Comentarios</span></a></li>
 
         <li class="treeview">
@@ -148,12 +148,7 @@ $(document).ready(function(){
         <?php View::load("index");?>
       </div><!-- /.content-wrapper -->
 
-        <footer class="main-footer">
-        <div class="pull-right hidden-xs">
-          <b>Version</b> v2.1
-        </div>
-        <strong>Copyright &copy; 2022 <a href="http://evilnapsis.com/company/" target="_blank">Evilnapsis</a></strong>
-      </footer>
+
       <?php else:?>
         <?php if(isset($_GET["view"]) && $_GET["view"]=="pacientlogin"):?>
 
@@ -162,7 +157,7 @@ $(document).ready(function(){
         <?php else:?>
 <div class="login-box">
       <div class="login-logo">
-        <a href="./"><b>BLOGELIN</b></a>
+        <a href="./"><b>Q' RIQUISIMO</b></a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
         <form action="./?action=processlogin" method="post">

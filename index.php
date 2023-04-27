@@ -48,12 +48,12 @@
                         <li>
                             <a href="BlogMadre_Recetario/?view=blog" onclick="seleccionar()">
                                 <i class="fa-solid fa-utensils"></i>
-                                <span>Ver Platillos</span>
+                                <span>Ver Recetas</span>
                             </a></li>
                         <li>
                             <a href="BlogMadre_Recetario\core\app\view\blog-view.php" onclick="seleccionar()">
                                 <i class="fa-solid fa-pen"></i>
-                                <span>Blog</span>
+                                <span>Agregar Receta</span>
                             </a>
                         </li>
                         <li>
@@ -91,7 +91,6 @@
             <div class="info">
                 <h2>Recetas de todo el mundo</h2>
                 <p>¿Quieres compartir tu receta favorita de tu localidad?</p>
-                <button href="">Haz clic aqui</button>
             </div>
         </div>
 
@@ -160,8 +159,6 @@
             </div>
         </div>
 
-        <button>Ver Más</button>
-
     </section>
 
     <!-- SECCION PLATOS -->
@@ -196,8 +193,6 @@
                 <p>Plato de Pastas con Tuco</p>
             </div>
         </div>
-
-        <button>Ver Más</button>
 
     </section>
 
@@ -246,7 +241,7 @@
     <section id="contacto">
         <div class="fila">
             <div class="col">
-                <h1>K'RIQUISIMO</h1>
+                <h1>Q'RIQUISIMO</h1>
             </div>
             <div class="col">
                 <h3>Menú</h3>

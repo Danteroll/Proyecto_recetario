@@ -5,8 +5,8 @@ Este es el layout principal, a partir de este layout o plantilla se muestran el 
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <?=Html::title('Blogelin - Evilnapsis');?>
-    <?=Html::link('res/bootstrap/css/bootstrap.css'); ?>
+    <?=Html::title('Q´ Riquisimo');?>
+    <?=Html::link('res/bootstrap/css/bootstrap.min.css'); ?>
     <?=Html::link('res/font-awesome/css/fontawesome-all.min.css'); ?>
     <?=Html::script('res/js/jquery.min.js'); ?>
   </head>
@@ -21,13 +21,15 @@ Este es el layout principal, a partir de este layout o plantilla se muestran el 
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="./"><b>BLOGELIN</b></a>
+      <a class="navbar-brand" href="/Proyecto_recetario/#inicio"><b>Q' RIQUISIMO</b></a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="./">INICIO</a></li>
-        <li><a href="./?view=blog">BLOG</a></li>
+        <li><a href="/Proyecto_recetario/#inicio">Inicio</a></li>
+        <li><a href="./?view=blog">Ver recetas</a></li>
+        <li><a href="./admin/index.php?view=posts&opt=all">Agregar receta</a></li>
+        <li><a href="/Proyecto_recetario/BlogMadre_Recetario/admin/index.php?view=posts&opt=all">ADMIN</a></li>
 
 
 
@@ -48,7 +50,6 @@ Este es el layout principal, a partir de este layout o plantilla se muestran el 
 <div class="col-md-12">
 <br>
 <hr>
-<p class="text-muted text-center">Powered by <a href="http://evilnapsis.com/" target="_blank">Evilnapsis</a> &copy; 2022</p>
 </div>
 </div>
 </div>

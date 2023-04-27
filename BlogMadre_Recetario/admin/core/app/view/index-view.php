@@ -1,4 +1,4 @@
-<script>window.location='./?view=home';</script>
+<script>window.location='index.php?view=posts&opt=all';</script>
 <div class="container">
 <div class="row">
 <div class="col-md-12">

@@ -155,14 +155,14 @@ h6,
 }
 /* General Links */
 a {
-  color: #3c8dbc;
+  color: #e3190a;
 }
 a:hover,
 a:active,
 a:focus {
   outline: none;
   text-decoration: none;
-  color: #72afd2;
+  color: #e3190a;
 }
 /* Page Header */
 .page-header {
