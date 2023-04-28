@@ -39,7 +39,7 @@ $(document).ready(function(){
 </script>
   </head>
 
-  <body class="<?php if(isset($_SESSION["user_id"])  ):?>  skin-red sidebar-mini <?php else:?>login-page<?php endif; ?>" >
+  <body class=" skin-red sidebar-mini " >
     <div class="wrapper">
       <!-- Main Header -->
       <?php if(isset($_SESSION["user_id"])):?>
@@ -58,39 +58,7 @@ $(document).ready(function(){
           <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
             <span class="sr-only">Toggle navigation</span>
           </a>
-          <!-- Navbar Right Menu -->
-          <div class="navbar-custom-menu">
-            <ul class="nav navbar-nav">
-
-
-              <!-- User Account Menu -->
-              <li class="dropdown user user-menu">
-                <!-- Menu Toggle Button -->
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <!-- The user image in the navbar-->
-                  <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                  <span class=""><?php 
-                  if(isset($_SESSION["user_id"])){ echo UserData::getById($_SESSION["user_id"])->name; }
-
-                  ?></span>
-                  <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu">
-                  <!-- The user image in the menu -->
-                  
-                  <!-- Menu Footer-->
-                  <li class="user-footer">
-                    <div class="pull-right">
-                      <?php if(isset($_SESSION["medic_id"])):?>
-                    <?php endif; ?>
-                      <a href="./logout.php" class="btn btn-default btn-flat">Salir</a>
-                    </div>
-                  </li>
-                </ul>
-              </li>
-              <!-- Control Sidebar Toggle Button -->
-            </ul>
-          </div>
+          
         </nav>
       </header>
       <!-- Left side column. contains the logo and sidebar -->
@@ -118,10 +86,21 @@ $(document).ready(function(){
               <?php $u = UserData::getById($_SESSION["user_id"]); ?>
               <li><a href="/Proyecto_recetario/#inicio"><i class='fa fa-file-text'></i> <span>Página principal</span></a></li>
             <li><a href="./index.php?view=posts&opt=all"><i class='fa fa-file-text'></i> <span>Agregar nueva receta</span></a></li>
-            <li><a href="./index.php?view=comments"><i class='fa fa-comment'></i> <span>Comentarios</span></a></li>
-
+            <li>
+            <?php
+            if (isset($_SESSION['usuario']) && $_SESSION['usuario'] == 36) {
+            ?>
+              <a href="./index.php?view=comments"><i class='fa fa-comment'></i> <span>Comentarios</span>
+            </a>
+            <?php
+            } else {
+            }
+            ?>  
         <li class="treeview">
-          <a href="#">
+        <?php
+            if (isset($_SESSION['usuario']) && $_SESSION['usuario'] == 36) {
+            ?>
+              <a href="#">
             <i class="fa fa-th-list"></i>
             <span>Catalogos</span>
             <span class="pull-right-container">
@@ -131,9 +110,22 @@ $(document).ready(function(){
           <ul class="treeview-menu">
             <li><a href="./?view=categories&opt=all"><i class="fa fa-circle-o"></i> Categorias</a></li>
           </ul>
+            <?php
+            } else {
+            }
+            ?>  
         </li>
 
-            <li><a href="./?view=users"><i class='fa fa-user'></i> <span>Usuarios</span></a></li>
+            <li>
+            <?php
+            if (isset($_SESSION['usuario']) && $_SESSION['usuario'] == 36) {
+            ?>
+              <a href="./?view=users"><i class='fa fa-user'></i> <span>Usuarios</span></a>
+            <?php
+            } else {
+            }
+            ?> 
+            </li>
             <?php endif; ?>
 
           </ul><!-- /.sidebar-menu -->
