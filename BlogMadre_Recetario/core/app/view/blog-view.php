@@ -8,7 +8,7 @@ $jobs  = PostData::getAllActive();
 <h1>Q' RIQUISIMO</h1>
 
 <div class="panel panel-default">
-<div class="panel-heading">Q' RIQUISIMO</div>
+<div class="panel-heading">Recetas faciles y practicas que podras leer para poder recrearlas en familia</div>
 <div class="panel-body">
 
 <?php if(count($jobs)>0):?>

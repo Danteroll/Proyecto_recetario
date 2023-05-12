@@ -28,11 +28,7 @@ Este es el layout principal, a partir de este layout o plantilla se muestran el 
       <ul class="nav navbar-nav">
         <li><a href="/Proyecto_recetario/#inicio">Inicio</a></li>
         <li><a href="./?view=blog">Ver recetas</a></li>
-        <li><a href="./admin/index.php?view=posts&opt=all">Agregar receta</a></li>
-        <li><a href="/Proyecto_recetario/BlogMadre_Recetario/admin/index.php?view=posts&opt=all">ADMIN</a></li>
-
-
-
+        <li><a href="/Proyecto_recetario/BlogMadre_Recetario/admin/index.php?view=posts&opt=all">Admin</a></li>
       </ul>
 
 

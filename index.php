@@ -38,7 +38,7 @@
                                 <span>Ver Recetas</span>
                             </a></li>
                         <li>
-                            <a href="BlogMadre_Recetario\core\app\view\blog-view.php" onclick="seleccionar()">
+                            <a href="BlogMadre_Recetario/admin/index.php?view=posts&opt=all" onclick="seleccionar()">
                                 <i class="fa-solid fa-pen"></i>
                                 <span>Agregar Receta</span>
                             </a>

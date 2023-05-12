@@ -85,6 +85,7 @@ $(document).ready(function(){
 
               <?php $u = UserData::getById($_SESSION["user_id"]); ?>
               <li><a href="/Proyecto_recetario/#inicio"><i class='fa fa-file-text'></i> <span>Página principal</span></a></li>
+              <li><a href="/Proyecto_recetario/BlogMadre_Recetario/?view=blog"><i class='fa fa-file-text'></i> <span>Ver recetas</span></a></li>
             <li><a href="./index.php?view=posts&opt=all"><i class='fa fa-file-text'></i> <span>Agregar nueva receta</span></a></li>
             <li>
             <?php
