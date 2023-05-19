@@ -238,19 +238,18 @@
                 <a href="#sabores">Blog</a>
             </div>
             <div class="col">
-                <h3>Cheffs</h3>
-                <a href="#">Marcos G.</a>
-                <a href="#">María L.</a>
-                <a href="#">Marta J.</a>
+                <h3>Creadores</h3>
+                <a href="#">Dante Alejandro Estrada Reyna</a>
+                <a href="#">Juan Alonso Alejandro Díaz</a>
+                <a href="#">Samuel Genaro Guadalupe Davila Anistro</a>
+                <a href="#">Emmanuel Cazares Reta</a>
             </div>
             <div class="col">
-                <h3>Social Media</h3>
-                <div class="media">
-                    <i class="fa-brands fa-twitter"></i> <a href="#">Twitter</a>
-                </div>
-                <div class="media">
-                    <i class="fa-brands fa-instagram"></i> <a href="#">Instagram</a>
-                </div>
+                <h3>Co-Creadores</h3>
+                <a href="#">Walter Jared De la rosa Gallegos</a>
+                <a href="#">Miguel Angel de Leon Alcantara</a>
+                <a href="#">Gerson Gabriel Vazquez Rodriguez</a>
+                <a href="#">Roberto Carlos Benita Cantu</a>
             </div>
         </div>
 
